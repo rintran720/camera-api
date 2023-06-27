@@ -11,14 +11,14 @@ function loadConfig() {
 
   try {
     const defaultConfig = fs.readFileSync(DEFAULT_CONFIG_PATH, "utf8");
-    config = JSON.parse(defaultConfig);
+    config = { ...JSON.parse(defaultConfig) };
   } catch (error) {
     console.log("Load default config error: " + error);
   }
 
   try {
     const userConfig = fs.readFileSync(USER_CONFIG_PATH, "utf8");
-    config = { ...config, ...userConfig };
+    config = { ...config, ...JSON.parse(userConfig) };
   } catch (error) {
     console.log("Load user config error: " + error);
   }

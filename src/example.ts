@@ -1,3 +1,7 @@
+import loadConfig from "./configs";
+global.__config = loadConfig();
+
+console.log(global);
 import { scanDahuaDevice, scanHikvisionDevice } from "./index";
 
 (async () => {
