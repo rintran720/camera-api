@@ -1,0 +1,35 @@
+{
+  "name": "camera-api",
+  "version": "1.0.0",
+  "description": "Support to communicate with camera api",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rintran720/camera-api.git"
+  },
+  "keywords": [
+    "camera",
+    "camera-api",
+    "dahua",
+    "hikvision",
+    "scan-camera"
+  ],
+  "author": "John Smith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rintran720/camera-api/issues"
+  },
+  "homepage": "https://github.com/rintran720/camera-api#readme",
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^29.5.2",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
+  }
+}

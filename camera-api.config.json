@@ -1,0 +1,6 @@
+{
+  "networkInterface": "en0",
+  "httpPort": 80,
+  "rtspPort": 554,
+  "checkPortTimeout": 10
+}
