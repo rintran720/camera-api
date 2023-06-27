@@ -79,7 +79,6 @@ export async function scanHikvisionDevice(
 ) {
   try {
     const devices = await scanOpeningPortInNetwork(ip_range);
-    console.log("Found IP: ", devices);
     const connectedDevices = [];
     for (const idx in devices) {
       try {

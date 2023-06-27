@@ -1,7 +1,6 @@
 import loadConfig from "./configs";
 global.__config = loadConfig();
 
-console.log(global);
 export function greet(name: string): string {
   return `Hello, ${name}!`;
 }
