@@ -1,5 +1,5 @@
 import { ICamera } from "../types/camera";
-import Camera from "./Camera";
+import { Camera } from "./Camera";
 
 export class DahuaCamera extends Camera implements ICamera {
   getDefaultRtspLink(): string {

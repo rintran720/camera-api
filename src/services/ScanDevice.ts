@@ -39,7 +39,7 @@ export function scanOpeningPortInNetwork(ip_range: string) {
 export async function scanDahuaDevice(
   username: string,
   password: string,
-  ip_range: string
+  ip_range?: string
 ) {
   try {
     const devices = await scanOpeningPortInNetwork(ip_range);
@@ -75,7 +75,7 @@ export async function scanDahuaDevice(
 export async function scanHikvisionDevice(
   username: string,
   password: string,
-  ip_range: string
+  ip_range?: string
 ) {
   try {
     const devices = await scanOpeningPortInNetwork(ip_range);

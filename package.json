@@ -1,6 +1,6 @@
 {
   "name": "camera-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Support to communicate with camera api",
   "main": "dist/index.js",
   "scripts": {

@@ -1,7 +1,4 @@
-const {
-  scanHikvisionDevice,
-  scanDahuaDevice,
-} = require("../services/ScanDevice.util");
+import { scanDahuaDevice, scanHikvisionDevice } from "./index";
 
 (async () => {
   try {

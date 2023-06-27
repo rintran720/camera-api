@@ -2,7 +2,7 @@ import AXIOS, { AxiosInstance } from "axios";
 import { checkPort, generateDigestHeader } from "../utils/net";
 import { ICamera } from "../types/camera";
 
-export default abstract class Camera implements ICamera {
+export abstract class Camera implements ICamera {
   ip: string;
   port: number;
   baseURL: string;

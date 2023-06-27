@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 import { ICamera } from "../types/camera";
-import Camera from "./Camera";
+import { Camera } from "./Camera";
 
 const xml2js = require("xml2js");
 const parser = new xml2js.Parser();
