@@ -1,11 +1,12 @@
 {
   "name": "camera-api",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Support to communicate with camera api",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "publish": "npm run build && npm publish --access public"
   },
   "repository": {
     "type": "git",
