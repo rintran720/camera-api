@@ -7,7 +7,7 @@ const parser = new xml2js.Parser();
 
 export class HikvisionCamera extends Camera implements ICamera {
   getDefaultRtspLink() {
-    return `rtsp://${this.username}:${this.password}@${this.ip}:554/ISAPI/Streaming/channels/$101`;
+    return `rtsp://${this.username}:${this.password}@${this.ip}:554/ISAPI/Streaming/channels/101`;
   }
 
   authenticate() {
