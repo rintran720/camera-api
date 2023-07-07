@@ -55,7 +55,7 @@ export async function scanDahuaDevice(
             connectedDevices.push({
               ip: devices[idx],
               stream_url: cam.getDefaultRtspLink(),
-              identifier: mac?.trim()?.replaceAll(":", ""),
+              identifier: mac?.trim()?.replace(/\:/g, ""),
               mac,
             });
         }
@@ -97,7 +97,7 @@ export async function scanHikvisionDevice(
             connectedDevices.push({
               ip: devices[idx],
               stream_url: cam.getDefaultRtspLink(),
-              identifier: mac?.trim()?.replaceAll(":", ""),
+              identifier: mac?.trim()?.replace(/\:/g, ""),
               mac,
             });
         }
