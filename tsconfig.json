@@ -5,8 +5,9 @@
     "typeRoots": ["./node_modules/@types", "./src/types"],
     "outDir": "./dist",
     "declaration": true,
-    "declarationDir": "./dist/types"
+    "declarationDir": "./dist/types",
+    "resolveJsonModule": true
   },
-  "include": ["src"],
+  "include": ["src", "src/configs/camera-api.config.json"],
   "exclude": ["node_modules"]
 }
