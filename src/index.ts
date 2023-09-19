@@ -20,6 +20,7 @@ export {
   HikvisionCamera,
   parseHikvisionResponseToObject,
 } from "./services/HikvisionCamera";
+export { HikvisionNvr } from "./services/HikvisionNvr";
 export {
   availableIpRange,
   scanDahuaDevice,

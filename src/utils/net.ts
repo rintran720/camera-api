@@ -59,7 +59,7 @@ export const generateDigestHeader = (
   password: string,
   method: string,
   path: string,
-  nonce: number,
+  nonce: string,
   realm: string
 ) => {
   const qop = "auth";

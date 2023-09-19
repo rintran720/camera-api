@@ -31,7 +31,8 @@ export abstract class Camera implements ICamera {
         }
 
         // Returns a promise that resolves to the response.
-        if (response.status === 401) {
+        if (response.status === 401 && !config._retry) {
+          config._retry = true;
           const originalRequest = { ...config };
           // extract nonce and realm from WWW-Authenticate header
           const authenticateHeader = response.headers["www-authenticate"];
@@ -45,7 +46,7 @@ export abstract class Camera implements ICamera {
 
           // generate digest authorization header
           const path = config.url;
-          const method = "GET";
+          const method = String(config.method).toUpperCase();
           const digestHeader = generateDigestHeader(
             this.username,
             this.password,
@@ -59,7 +60,7 @@ export abstract class Camera implements ICamera {
           return this.axios(originalRequest);
           // Promise. resolve rejects if response status is less than 300.
         } else if (response.status > 300) {
-          return Promise.reject(new Error("Can not access this device"));
+          return Promise.reject(new Error(response.statusText));
         } else {
           return Promise.resolve(response);
         }
