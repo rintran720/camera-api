@@ -8,12 +8,15 @@ import { HikvisionNvr } from "./services/HikvisionNvr";
 
 (async () => {
   try {
-    console.log(await scanHikvisionDevice("admin", "password", "129.168.5"));
-    console.log(await scanDahuaDevice("admin", "password"));
-    const nvr = new HikvisionNvr("192.168.92.97", 9797, "admin", "admin");
+    // console.log(await scanHikvisionDevice("admin", "password", "129.168.5"));
+    // console.log(await scanDahuaDevice("admin", "password"));
+    const nvr = new HikvisionNvr("192.168.92.97", 40100, "admin", "admin");
 
-    const net = await nvr.downloadVideo({ filename: "" });
-    console.log(net);
+    const net = await nvr.searchVideo({
+      startTime: new Date("2023-09-06T15:15:12Z"),
+      endTime: new Date("2023-09-06T15:15:12Z"),
+    });
+    // console.log(net);
   } catch (error) {
     console.error(error);
   }

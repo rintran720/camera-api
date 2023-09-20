@@ -19,13 +19,22 @@ export class HikvisionNvr extends HikvisionCamera {
   searchVideo({
     startTime,
     endTime,
-    searchID = crypto.randomBytes(16).toString("hex"),
+    searchID = crypto.randomBytes(4).toString("hex").toUpperCase() +
+      "-" +
+      crypto.randomBytes(2).toString("hex").toUpperCase() +
+      "-" +
+      crypto.randomBytes(2).toString("hex").toUpperCase() +
+      "-" +
+      crypto.randomBytes(2).toString("hex").toUpperCase() +
+      "-" +
+      crypto.randomBytes(6).toString("hex").toUpperCase(),
+
     trackID = "101",
     maxResults = 50,
     searchResultPostion = 0,
   }: ISearchVideoHikvision) {
     try {
-      const xmlBodyStr = `<?xml version: "1.0" encoding="utf-8"?>
+      const xmlBodyStr = `<?xml version="1.0" encoding="utf-8"?>
       <CMSearchDescription>
           <searchID>${searchID}</searchID>
           <trackList>
@@ -33,8 +42,8 @@ export class HikvisionNvr extends HikvisionCamera {
           </trackList>
           <timeSpanList>
               <timeSpan>
-                  <startTime>${startTime}</startTime>
-                  <endTime>${endTime}</endTime>
+                  <startTime>${startTime.toISOString()}</startTime>
+                  <endTime>${endTime.toISOString()}</endTime>
               </timeSpan>
           </timeSpanList>
           <maxResults>${maxResults}</maxResults>
@@ -46,7 +55,7 @@ export class HikvisionNvr extends HikvisionCamera {
     `;
 
       const config = {
-        headers: { "Content-Type": "text/xml" },
+        headers: { "Content-Type": "application/xml" },
       };
 
       return this.axios.post("/ISAPI/ContentMgmt/search", xmlBodyStr, config);
@@ -64,7 +73,7 @@ export class HikvisionNvr extends HikvisionCamera {
     `;
 
       const config = {
-        headers: { "Content-Type": "text/xml" },
+        headers: { "Content-Type": "application/xml" },
       };
 
       return this.axios.post("/ISAPI/ContentMgmt/download", xmlBodyStr, config);
