@@ -2,8 +2,8 @@ import { HikvisionCamera } from "./HikvisionCamera";
 const crypto = require("crypto");
 
 interface ISearchVideoHikvision {
-  startTime: Date;
-  endTime: Date;
+  startTime: string;
+  endTime: string;
   searchID?: string;
   trackID?: string;
   maxResults?: number;
@@ -42,8 +42,8 @@ export class HikvisionNvr extends HikvisionCamera {
           </trackList>
           <timeSpanList>
               <timeSpan>
-                  <startTime>${startTime.toISOString()}</startTime>
-                  <endTime>${endTime.toISOString()}</endTime>
+                  <startTime>${startTime}</startTime>
+                  <endTime>${endTime}</endTime>
               </timeSpan>
           </timeSpanList>
           <maxResults>${maxResults}</maxResults>

@@ -13,10 +13,10 @@ import { HikvisionNvr } from "./services/HikvisionNvr";
     const nvr = new HikvisionNvr("192.168.92.97", 40100, "admin", "admin");
 
     const net = await nvr.searchVideo({
-      startTime: new Date("2023-09-06T15:15:12Z"),
-      endTime: new Date("2023-09-06T15:15:12Z"),
+      startTime: "2023-09-26T14:19:32.000Z",
+      endTime: "2023-09-26T14:19:32.000Z",
+      trackID: "301",
     });
-    // console.log(net);
   } catch (error) {
     console.error(error);
   }
