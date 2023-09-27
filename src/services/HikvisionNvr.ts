@@ -74,9 +74,14 @@ export class HikvisionNvr extends HikvisionCamera {
 
       const config = {
         headers: { "Content-Type": "application/xml" },
+        responseType: "arraybuffer", // Important
       };
 
-      return this.axios.post("/ISAPI/ContentMgmt/download", xmlBodyStr, config);
+      return this.axios.post(
+        "/ISAPI/ContentMgmt/download",
+        xmlBodyStr,
+        config as any
+      );
     } catch (e) {
       console.log("error", e);
     }

@@ -17,6 +17,7 @@ import { HikvisionNvr } from "./services/HikvisionNvr";
       endTime: "2023-09-26T14:19:32.000Z",
       trackID: "301",
     });
+    console.log(net);
   } catch (error) {
     console.error(error);
   }
