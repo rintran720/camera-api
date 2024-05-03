@@ -16,6 +16,57 @@ interface IDownloadVideoHikvision {
 }
 
 export class HikvisionNvr extends HikvisionCamera {
+  searchImage({
+    startTime,
+    endTime,
+    searchID = crypto.randomBytes(4).toString("hex").toUpperCase() +
+      "-" +
+      crypto.randomBytes(2).toString("hex").toUpperCase() +
+      "-" +
+      crypto.randomBytes(2).toString("hex").toUpperCase() +
+      "-" +
+      crypto.randomBytes(2).toString("hex").toUpperCase() +
+      "-" +
+      crypto.randomBytes(6).toString("hex").toUpperCase(),
+
+    trackID = "101",
+    maxResults = 50,
+    searchResultPostion = 0,
+  }: ISearchVideoHikvision) {
+    try {
+      const xmlBodyStr = `<?xml version="1.0" encoding="utf-8"?>
+      <CMSearchDescription>
+          <searchID>${searchID}</searchID>
+          <trackList>
+              <trackID>${trackID}</trackID>
+          </trackList>
+          <timeSpanList>
+              <timeSpan>
+                  <startTime>${startTime}</startTime>
+                  <endTime>${endTime}</endTime>
+              </timeSpan>
+          </timeSpanList>
+          <contentTypeList>
+            <contentType>metadata</contentType>
+          </contentTypeList>
+          <maxResults>${maxResults}</maxResults>
+          <searchResultPostion>${searchResultPostion}</searchResultPostion>
+          <metadataList>
+              <metadataDescriptor>//recordType.meta.std-cgi.com/allPic</metadataDescriptor>
+          </metadataList>
+      </CMSearchDescription>
+    `;
+
+      const config = {
+        headers: { "Content-Type": "application/xml" },
+      };
+
+      return this.axios.post("/ISAPI/ContentMgmt/search", xmlBodyStr, config);
+    } catch (e) {
+      console.log("error", e);
+    }
+  }
+
   searchVideo({
     startTime,
     endTime,
