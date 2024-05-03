@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
-    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "typeRoots": ["./node_modules/@types", "./src/types/global.d.ts"],
     "outDir": "./dist",
     "declaration": true,
     "declarationDir": "./dist/types",
