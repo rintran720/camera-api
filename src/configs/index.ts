@@ -6,7 +6,7 @@ const path = require("path");
 const DEFAULT_CONFIG_PATH = path.join(__dirname, "camera-api.config.json");
 const USER_CONFIG_PATH = path.join(process.cwd(), "camera-api.config.json");
 
-function loadConfig() {
+function w3loadConfig() {
   let config: ICameraApiConfig;
 
   try {
@@ -26,4 +26,4 @@ function loadConfig() {
   return config;
 }
 
-export default loadConfig;
+export default w3loadConfig;
